@@ -82,9 +82,9 @@ CREATE TABLE `produitderive` (
 --
 
 INSERT INTO `produitderive` (`id`, `produit`, `photo`) VALUES
-(1, 'Propolis', './img/produitsDerives/propolis.jpg'),
+(1, 'Propolis', './img/produitsDerives/propolis.webp'),
 (2, 'Bougies', './img/produitsDerives/bougie.webp'),
-(3, 'Gelée royale', './img/produitsDerives/gelee.jpg');
+(3, 'Gelée royale', './img/produitsDerives/gelee.webp');
 
 -- --------------------------------------------------------
 
