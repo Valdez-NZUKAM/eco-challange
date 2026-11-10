@@ -1,5 +1,5 @@
 <?php
-require_once("classDatabase.php");
+require_once("ClassDatabase.php");
 
 class ClassConnexion {
     private ClassDatabase $db;
