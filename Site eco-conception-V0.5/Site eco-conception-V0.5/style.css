@@ -1,170 +1,125 @@
-/*****************
-VARIABLES
-*****************/
-*{
-    --marginTop : 4%;
-    --borderRadius: 3px;
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; }
+body { font-family: Arial, Helvetica, sans-serif; color: #243d2e; background: #fbfaf4; }
+a { color: inherit; text-decoration: none; }
+a:focus-visible { outline: 3px solid #d6a838; outline-offset: 4px; }
+.announcement { min-height: 30px; padding: 8px 20px; background: #344f3d; color: #f9f6e9; text-align: center; font-size: 10px; letter-spacing: .1em; }
+.announcement span { color: #e7c65d; margin-left: 8px; }
+.site-header { position: sticky; top: 0; z-index: 20; min-height: 96px; max-width: 1440px; margin: auto; padding: 12px 6%; display: flex; align-items: center; justify-content: space-between; gap: 30px; background: #fbfaf4; box-shadow: 0 4px 16px rgb(36 61 46 / 7%); }
+.brand { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+#logo { width: 55px; height: 55px; object-fit: contain; }
+#titre { font-size: 25px; letter-spacing: -1.5px; font-weight: 800; line-height: 1; }
+.brand-dot, .footer-brand > span { color: #d6a838; }
+#titre small { display: block; margin-top: 5px; color: #7c897a; font-size: 7px; letter-spacing: .1em; font-weight: 700; }
+nav { display: flex; justify-content: center; align-items: center; gap: clamp(18px, 2.8vw, 43px); }
+nav a { position: relative; padding: 12px 0; font-size: 12px; font-weight: 600; white-space: nowrap; }
+nav a:hover, nav a.active { color: #a97917; }
+nav a.active::after { content: ''; position: absolute; bottom: 3px; left: 0; width: 20px; height: 2px; background: #d7af4b; }
+.header-contact { border: 1px solid #b5c0ae; border-radius: 3px; padding: 13px 18px; font-size: 11px; font-weight: bold; white-space: nowrap; }
+.header-contact span { margin-left: 12px; }
+.header-contact:hover { background: #344f3d; color: white; }
+main { min-height: 45vh; }
+.page-title { max-width: 1280px; margin: 35px auto 0; padding: 0 6%; font-size: 28px; font-weight: bold; }
+body.home .page-title { display: none; }
+section { width: 100%; }
+.hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 535px; background: #f0eee2; }
+.hero-copy { position: relative; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; padding: 75px 8% 80px 12%; }
+.eyebrow { display: flex; align-items: center; gap: 10px; margin: 0 0 24px; color: #73816c; font-size: 10px; font-weight: 700; letter-spacing: .16em; }
+.eyebrow > span { width: 24px; height: 2px; background: #cda94b; }
+h1, h2, h3, p { margin-top: 0; }
+h1 { margin-bottom: 20px; font-size: clamp(42px, 5vw, 72px); line-height: 1.08; letter-spacing: -.055em; font-weight: 700; }
+h1 em, h2 em { color: #a98336; font-weight: 400; }
+.hero-description { max-width: 360px; color: #69776a; font-size: 15px; line-height: 1.8; }
+.hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 25px; margin-top: 18px; }
+.button { display: inline-flex; align-items: center; gap: 28px; padding: 17px 20px; font-size: 12px; font-weight: bold; }
+.button-dark { background: #344f3d; color: white; }
+.button-dark:hover { background: #263c2e; }
+.text-link { font-size: 12px; font-weight: bold; border-bottom: 1px solid #b5bda9; padding: 10px 0; }
+.text-link span { margin-left: 8px; }
+.hero-bottom { position: absolute; left: 12%; right: 8%; bottom: 27px; display: flex; justify-content: space-between; color: #8e998a; font-size: 9px; font-weight: bold; letter-spacing: .12em; }
+.hero-image { position: relative; min-height: 535px; overflow: hidden; background: #dfe5d4; }
+#viewer { position: absolute; inset: 0; display: block; overflow: hidden; }
+#viewer #containerSlider { width: 100%; max-width: none; height: 100%; margin: 0; border: 0; border-radius: 0; }
+#viewer #slider { height: 100%; transition: left .8s ease; }
+#viewer #slider > img { width: 50vw; height: 535px; object-fit: cover; }
+#viewer #scroll { position: absolute; bottom: 28px; left: 50%; z-index: 2; gap: 8px; transform: translateX(-50%); }
+#viewer .selectorViewer { width: 10px; height: 10px; border: 1px solid white; background: rgb(255 255 255 / 60%); }
+.image-label { position: absolute; right: 30px; bottom: 55px; z-index: 3; display: flex; align-items: center; gap: 12px; padding: 15px 19px; background: #fbfaf1; color: #6e7c69; font-size: 11px; line-height: 1.5; }
+.image-label > span { color: #c69f41; font-size: 30px; }
+.image-label strong { color: #344f3d; font-size: 13px; }
+.values-strip { display: flex; justify-content: space-around; gap: 20px; padding: 20px; background: #e4e9d9; color: #687960; font-size: 10px; font-weight: bold; letter-spacing: .12em; }
+.discover { max-width: 1300px; margin: auto; padding: 105px 6% 100px; }
+.section-heading { display: flex; justify-content: space-between; align-items: end; gap: 40px; margin-bottom: 40px; }
+h2 { margin-bottom: 0; font-size: clamp(30px, 3.5vw, 47px); line-height: 1.16; letter-spacing: -.045em; }
+.section-heading > p { max-width: 310px; margin: 0 0 4px; color: #7c897b; font-size: 13px; line-height: 1.8; }
+.discover-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.discover-card { min-width: 0; }
+.card-image { height: 250px; overflow: hidden; background: #ede8d9; }
+.card-image img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .3s ease; }
+.card-honey { background: #3e6348; }
+.card-honey img { object-fit: contain; padding: 12px; }
+.card-products { background: #eee9dc; }
+.card-products img { object-fit: contain; padding: 18px; }
+.discover-card:hover .card-image img { transform: scale(1.04); }
+.card-heading { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: 23px; }
+.card-heading div > span { color: #a18e65; font-size: 9px; font-weight: bold; letter-spacing: .12em; }
+.card-heading h3 { margin: 8px 0 0; font-size: 19px; letter-spacing: -.03em; }
+.card-arrow { display: grid; place-items: center; width: 35px; height: 35px; flex-shrink: 0; border: 1px solid #d5ddcf; border-radius: 50%; }
+.discover-card > p { margin: 10px 0 0; color: #849083; font-size: 12px; line-height: 1.6; }
+.site-footer { display: flex; justify-content: space-between; gap: 35px; padding: 58px 8%; background: #304a39; color: #f2f2e7; }
+.footer-brand { font-size: 30px; font-weight: 800; letter-spacing: -1.5px; }
+.footer-brand small { display: block; margin-top: 10px; color: #b7c4b5; font-size: 11px; font-weight: normal; letter-spacing: 0; }
+.footer-address strong { font-size: 12px; }
+address { margin-top: 12px; color: #b7c4b5; font-size: 11px; line-height: 1.8; font-style: normal; }
+.footer-note { color: #c1cdbd; font-size: 12px; line-height: 1.8; }
+.footer-note span { color: #d8b451; font-size: 23px; }
+.tous-les-produits { display: flex; justify-content: center; flex-wrap: wrap; gap: 24px; padding: 45px 6%; }
+.produit { display: flex; flex-direction: column; align-items: center; gap: 15px; padding: 20px; background: #f0eee2; }
+.img-produit { width: 160px; height: 160px; object-fit: contain; }
+#contact { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px 6%; }
+.page-section { scroll-margin-top: 145px; }
+.page-section:not([data-page="Accueil"]) { padding: 75px 6%; }
+.page-section:nth-of-type(odd):not([data-page="Accueil"]) { background: #f0eee2; }
+.content-section-heading { max-width: 1180px; margin: 0 auto 12px; }
+.content-section-heading .eyebrow { margin-bottom: 15px; }
+.content-section-content { max-width: 1180px; margin: auto; }
+.content-section-content iframe { display: block; width: 100%; max-width: 1030px; aspect-ratio: 16 / 9; height: auto; margin: 35px auto 0; }
+#contact { min-height: 120px; align-items: flex-start; gap: 10px; color: #536650; font-size: 14px; line-height: 1.7; }
+.page-section:not([data-page="Accueil"]) .tous-les-produits { justify-content: flex-start; padding: 35px 0; }
+.page-section:not([data-page="Accueil"]) .produit { min-width: 190px; }
+.page-section[data-page="Miels"] .produit { min-width: 210px; gap: 12px; padding: 22px; border: 1px solid #e3e2d8; border-radius: 4px; background: #fffef9; }
+.page-section[data-page="Miels"] .produit > div { color: #344f3d; font-size: 15px; font-weight: 700; }
+.page-section[data-page="Miels"] .img-produit { width: 180px; height: 190px; object-fit: contain; }
+.page-section[data-page="Produits dérivés"] .produit { min-width: 210px; border: 1px solid #e3e2d8; border-radius: 4px; background: #fffef9; }
+@media (max-width: 900px) {
+    .site-header { flex-wrap: wrap; justify-content: space-between; gap: 10px; padding: 12px 5%; }
+    nav { order: 3; width: 100%; justify-content: flex-start; gap: 25px; overflow-x: auto; }
+    .hero-copy { padding-left: 8%; }
+    .hero-bottom { left: 8%; }
+    .hero, .hero-image { min-height: 470px; }
+    #viewer #slider > img { height: 470px; }
+    .discover { padding-top: 75px; padding-bottom: 75px; }
+    .card-image { height: 200px; }
 }
-/*****************
-BALISES
-*****************/
-html, body{
-    width: 100%;
-    height: 100%;
-}
-
-body{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-
-    font-family: Arial, Helvetica, sans-serif;
-    color:darkgreen;
-    margin : 0;
-}
-
-nav{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
-
-    width: 50%;
-    margin-top: var(--marginTop);
-
-}
-
-a{
-    text-decoration: none;
-    color:darkgreen;
-}
-
-a:hover{
-    color:goldenrod;
-}
-
-header{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
-
-    width: 80%;
-    margin-top: var(--marginTop);
-}
-
-main{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    flex-wrap: wrap;
-    flex: 1;
-
-    margin-top: var(--marginTop);
-    width: 90%;
-}
-
-section{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-
-    width: 100%;
-}
-
-img{
-    border-radius: var(--borderRadius);
-}
-
-footer{
-    margin-top: var(--marginTop);
-    margin-bottom: var(--marginTop);
-}
-
-address{
-    font-size: 0.8em;
-}
-
-/*****************
-IDENTIFIANTS
-*****************/
-#titre{
-    font-size: 2em;
-}
-
-#soustitre{
-    font-size: 1.5em;
-}
-
-#img-accueil{
-    width: 400px;
-    height: auto;
-}
-
-#logo {
-    width: 100px;
-    height: auto;
-}
-
-#gif {
-    width: 100px;
-    height: auto;
-}
-
-#contact{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-/*****************
-CLASSES
-*****************/
-.tous-les-produits{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-.produit {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 5px;
-
-    color: black;
-}
-
-.img-produit {
-    width: 100px;
-    height: auto;
-}
-
-/*****************
-MEDIAQUERY
-*****************/
-@media screen and (max-width: 768px) {
-    /* Vos règles CSS pour les petits écrans */
-
-    nav {
-        flex-direction: column;
-    }
-
-    header{
-        flex-direction: column;
-    }
-
-    .tous-les-produits{
-        flex-direction: column;
-    }
+@media (max-width: 650px) {
+    .announcement { font-size: 9px; }
+    .header-contact { padding: 10px 12px; }
+    nav { gap: 22px; }
+    nav a { font-size: 11px; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-copy { min-height: 400px; padding: 60px 7% 75px; }
+    .hero-bottom { left: 7%; right: 7%; }
+    .hero-image { min-height: 330px; }
+    #viewer #slider > img { width: 100vw; height: 330px; }
+    .image-label { right: 18px; bottom: 52px; padding: 11px 14px; }
+    #viewer #scroll { bottom: 23px; }
+    .page-section { scroll-margin-top: 165px; }
+    .page-section[data-page="Miels"] .produit, .page-section[data-page="Produits dérivés"] .produit { width: 100%; }
+    .values-strip { flex-wrap: wrap; justify-content: center; gap: 12px 20px; text-align: center; font-size: 9px; }
+    .section-heading { display: block; }
+    .section-heading > p { margin-top: 20px; }
+    .discover-grid { grid-template-columns: 1fr; gap: 35px; }
+    .card-image { height: 270px; }
+    .site-footer { flex-wrap: wrap; }
+    .footer-brand { width: 100%; }
 }

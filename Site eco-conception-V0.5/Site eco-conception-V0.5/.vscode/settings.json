@@ -1,0 +1,7 @@
+{
+    "builder.serverUrl": "http://localhost",
+    "builder.command": "C:\\xampp\\php\\php.exe -S 127.0.0.1:8000",
+    "builder.runDevServer": true,
+    "builder.autoDetectDevServer": true,
+    "builder.launchType": "editor"
+}

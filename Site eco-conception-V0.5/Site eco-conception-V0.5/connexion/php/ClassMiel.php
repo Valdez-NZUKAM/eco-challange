@@ -34,6 +34,28 @@ class ClassMiel {
         ]);
     }
 
+    public function updateMiel(int $id, string $type, string $photo): bool {
+        $type = trim($type);
+        $photo = trim($photo);
+
+        if ($id <= 0 || $type === '' || $photo === '') {
+            return false;
+        }
+
+        if (strlen($type) > 255 || strlen($photo) > 255) {
+            return false;
+        }
+
+        $sql = "UPDATE miel SET type = :type, photo = :photo WHERE id = :id";
+        $stmt = $this->pdo->prepare($sql);
+
+        return $stmt->execute([
+            'id' => $id,
+            'type' => $type,
+            'photo' => $photo
+        ]);
+    }
+
     // Supprimer un miel à partir de son identifiant
     public function removeMiel(int $id): bool {
         if ($id <= 0) {
