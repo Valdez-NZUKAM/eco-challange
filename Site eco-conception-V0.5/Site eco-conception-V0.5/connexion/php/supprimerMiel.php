@@ -1,8 +1,10 @@
 <?php
+   session_start();
     require_once("ClassMiel.php");
 
-    if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-        header('Location: ../backend.php');
+    // Pas connecté ou pas en POST : on renvoie vers la connexion
+    if (!isset($_SESSION['user']) || $_SERVER['REQUEST_METHOD'] !== 'POST') {
+        header('Location: ../index.php');
         exit;
     }
 

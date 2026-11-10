@@ -38,6 +38,8 @@
 
                     <label for="photo">Chemin de la photo :</label>
                     <input type="text" id="photo" name="photo">
+                    <label for="stock">Stock :</label>
+                    <input type="number" id="stock" name="stock" min="0" value="0">
 
                     <div class="bouton" onclick="envoiFormulaire(this.closest('form'))">Ajouter</div>
                 </form>
@@ -61,12 +63,14 @@
                                 Identifiant :
                                 <?= (int) $unMiel['id'] ?>
                             </span>
+                            <form action="./php/modifierStock.php" method="POST">
+                                <input type="hidden" name="id" value="<?= (int) $unMiel['id'] ?>">
+                                <button type="submit" name="action" value="moins">−</button>
+                                <button type="submit" name="action" value="plus">+</button>
+                            </form>
+
                             <form action="./php/supprimerMiel.php" method="POST">
-                                <input
-                                    type="hidden"
-                                    name="id"
-                                    value="<?= (int) $unMiel['id'] ?>"
-                                >
+                                <input type="hidden" name="id" value="<?= (int) $unMiel['id'] ?>">
                                 <div class="bouton" onclick="envoiFormulaire(this.closest('form'))">Supprimer</div>
                             </form>
                         </div>

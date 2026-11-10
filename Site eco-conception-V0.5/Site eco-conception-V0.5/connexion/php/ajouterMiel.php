@@ -1,22 +1,22 @@
 <?php
+    session_start();
     require_once("ClassMiel.php");
 
-    if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-        header('Location: ../backend.php');
+    // Pas connecté ou pas en POST : on renvoie vers la connexion
+    if (!isset($_SESSION['user']) || $_SERVER['REQUEST_METHOD'] !== 'POST') {
+        header('Location: ../index.php');
         exit;
     }
 
-    $type = $_POST['type'] ?? null;
-    $photo = $_POST['photo'] ?? null;
+    $type  = $_POST['type'] ?? '';
+    $photo = $_POST['photo'] ?? '';
+    // filter_input renvoie false si ce n'est pas un entier valide
+    $stock = filter_input(INPUT_POST, 'stock', FILTER_VALIDATE_INT);
 
-    if (!is_string($type) || !is_string($photo)) {
-        header('Location: ../backend.php');
-        exit;
-    }
-
-    if($type !== '' || $photo !== ''){
+    // && : les 3 champs doivent être valides (avant, || en acceptait un seul)
+    if ($type !== '' && $photo !== '' && $stock !== false && $stock !== null && $stock >= 0) {
         $miel = new ClassMiel();
-        $miel->addMiel($type, $photo);
+        $miel->addMiel($type, $photo, $stock);
     }
     header('Location: ../backend.php');
 ?>
