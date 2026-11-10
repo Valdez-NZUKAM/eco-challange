@@ -10,9 +10,9 @@
     </head>
     <body>
         <header>
-            <img id="logo" src="img/logo_Mellifica.png" alt="Logo de Mellifica" />
+            <img id="logo" src="../img/logo_Mellifica.png" alt="Logo de Mellifica" />
             <div id="titre">Mellifica</div>
-            <img id="gif" src="./gif/abeille.gif">
+            <img id="gif" src="../img/abeille.webp" width="100" height="56" alt="">
         </header>
         <main>
             <div id="soustitre">Connexion</div>

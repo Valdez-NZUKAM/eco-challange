@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <images>
     <image>
-        <src>./PhotosSlider/img01.jpg</src>
-        <alt>Récolte de miel</alt>
+        <src>./PhotosSlider/img01.webp</src>
+        <alt>Abeilles sur des alvéoles de cire dorée</alt>
     </image>
     <image>
-        <src>./PhotosSlider/img02.jpg</src>
-        <alt>Récolte de miel</alt>
+        <src>./PhotosSlider/img02.webp</src>
+        <alt>Apiculteur en tenue tenant un cadre couvert d'abeilles</alt>
     </image>
     <image>
-        <src>./PhotosSlider/img03.jpg</src>
-        <alt>Récolte de miel</alt>
+        <src>./PhotosSlider/img03.webp</src>
+        <alt>Gros plan d'un rayon de cire rempli de miel</alt>
     </image>
     <image>
-        <src>./PhotosSlider/img04.jpg</src>
-        <alt>Récolte de miel</alt>
+        <src>./PhotosSlider/img04.webp</src>
+        <alt>Apiculteur sortant un cadre de la ruche</alt>
     </image>
     <image>
-        <src>./PhotosSlider/img05.jpg</src>
-        <alt>Récolte de miel</alt>
+        <src>./PhotosSlider/img05.webp</src>
+        <alt>Main de l'apiculteur au-dessus d'une ruche ouverte pleine d'abeilles</alt>
     </image>
 </images>
