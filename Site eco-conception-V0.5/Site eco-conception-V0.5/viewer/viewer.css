@@ -1,0 +1,78 @@
+/********************************
+VARIABLES
+********************************/
+#containerSlider, #slider>img{
+	--width-pics: 30rem;
+	--height-pics: 15rem;
+}
+/********************************
+CONTENEUR GLOBAL
+Contient le container #containerSlider et #scroll
+********************************/
+#viewer{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+/********************************
+CONTENEUR
+Contient le slider d'image qui coulissera dedans. 
+Les images débordent du conteneur parent seront masquées 
+********************************/
+#containerSlider{
+/*	
+	width: 50rem;
+	height: 30rem;
+*/	
+	width: var(--width-pics);
+	height: var(--height-pics);
+	
+	position: relative;
+	margin: auto;
+	
+	border: 1px solid lightgray;
+	border-radius: 1rem;
+	background-color: white;
+	
+	overflow: hidden;	
+}
+/********************************
+SLIDER
+Contient les images à disposition horizontale. 
+********************************/
+#slider{
+	display: flex;
+	flex-direction: row;
+	position : absolute;
+	left: 0px;
+	transition: left 1s;
+}
+
+#slider>img{
+/*	
+	width: 50rem;
+	height: 30rem;
+*/	
+	width: var(--width-pics);
+	height: var(--height-pics);
+}
+/********************************
+SCROLL  VIEWER
+Ronds colorés selon l'évolution du slider 
+********************************/
+#scroll{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
+.selectorViewer{
+	width: 2rem;
+	height: 2rem;
+/*	background-color: white;*/
+	border: 1px solid lightgray;
+	border-radius: 1rem; 
+	cursor: pointer;
+}

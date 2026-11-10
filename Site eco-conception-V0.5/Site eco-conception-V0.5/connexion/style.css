@@ -1,0 +1,142 @@
+/*****************
+VARIABLES
+*****************/
+*{
+    --marginTop : 4%;
+    --widthinput : 110px;
+    --borderRadius : 3px;
+}
+/*****************
+BALISES
+*****************/
+html, body{
+    width: 100%;
+    height: 100%;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    font-family: Arial, Helvetica, sans-serif;
+    color:darkgreen;
+    margin : 0;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    flex: 1;
+
+    margin-top: var(--marginTop);
+    width: 100%;
+}
+
+section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+
+    width: 80%;
+    margin-top: var(--marginTop);
+}
+
+img{
+    border-radius: 3px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form div{
+    margin-top: var(--marginTop);
+}
+label, input{
+    display: inline-block;
+    width: var(--widthinput);
+}
+
+/*****************
+IDENTIFIANTS
+*****************/
+#titre{
+    font-size: 2em;
+}
+
+#soustitre{
+    font-size: 1.5em;
+}
+
+
+#logo {
+    width: 100px;
+    height: auto;
+}
+
+#gif {
+    width: 100px;
+    height: auto;
+}
+
+/*****************
+CLASSES
+*****************/
+.bouton {
+    color: black;
+    background-color: lightgray;
+    width: var(--widthinput);
+    border: solid 1px grey; 
+    border-radius: var(--borderRadius);
+    text-align: center;
+    cursor: pointer;
+}
+.bouton:active {
+    background-color: gray;
+    border-color: goldenrod;
+}
+
+.modifyMiel{
+    width: 100%;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.modifyMiel label{
+    width: 170px;
+    margin-left: 2px;
+    margin-right: 2px;
+    text-align: right;
+}
+
+.modifyMiel div{
+    margin-top: 0px;
+    margin-left: 4px;
+}
+
+/*****************
+MEDIAQUERY
+*****************/
+@media screen and (max-width: 768px) {
+    /* Vos règles CSS pour les petits écrans */
+
+}

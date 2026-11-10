@@ -1,0 +1,170 @@
+/*****************
+VARIABLES
+*****************/
+*{
+    --marginTop : 4%;
+    --borderRadius: 3px;
+}
+/*****************
+BALISES
+*****************/
+html, body{
+    width: 100%;
+    height: 100%;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    font-family: Arial, Helvetica, sans-serif;
+    color:darkgreen;
+    margin : 0;
+}
+
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+
+    width: 50%;
+    margin-top: var(--marginTop);
+
+}
+
+a{
+    text-decoration: none;
+    color:darkgreen;
+}
+
+a:hover{
+    color:goldenrod;
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+
+    width: 80%;
+    margin-top: var(--marginTop);
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    flex: 1;
+
+    margin-top: var(--marginTop);
+    width: 90%;
+}
+
+section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    width: 100%;
+}
+
+img{
+    border-radius: var(--borderRadius);
+}
+
+footer{
+    margin-top: var(--marginTop);
+    margin-bottom: var(--marginTop);
+}
+
+address{
+    font-size: 0.8em;
+}
+
+/*****************
+IDENTIFIANTS
+*****************/
+#titre{
+    font-size: 2em;
+}
+
+#soustitre{
+    font-size: 1.5em;
+}
+
+#img-accueil{
+    width: 400px;
+    height: auto;
+}
+
+#logo {
+    width: 100px;
+    height: auto;
+}
+
+#gif {
+    width: 100px;
+    height: auto;
+}
+
+#contact{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/*****************
+CLASSES
+*****************/
+.tous-les-produits{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.produit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+
+    color: black;
+}
+
+.img-produit {
+    width: 100px;
+    height: auto;
+}
+
+/*****************
+MEDIAQUERY
+*****************/
+@media screen and (max-width: 768px) {
+    /* Vos règles CSS pour les petits écrans */
+
+    nav {
+        flex-direction: column;
+    }
+
+    header{
+        flex-direction: column;
+    }
+
+    .tous-les-produits{
+        flex-direction: column;
+    }
+}

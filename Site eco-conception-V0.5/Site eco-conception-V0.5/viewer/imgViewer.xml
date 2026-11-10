@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<images>
+    <image>
+        <src>./PhotosSlider/img01.jpg</src>
+        <alt>Récolte de miel</alt>
+    </image>
+    <image>
+        <src>./PhotosSlider/img02.jpg</src>
+        <alt>Récolte de miel</alt>
+    </image>
+    <image>
+        <src>./PhotosSlider/img03.jpg</src>
+        <alt>Récolte de miel</alt>
+    </image>
+    <image>
+        <src>./PhotosSlider/img04.jpg</src>
+        <alt>Récolte de miel</alt>
+    </image>
+    <image>
+        <src>./PhotosSlider/img05.jpg</src>
+        <alt>Récolte de miel</alt>
+    </image>
+</images>
