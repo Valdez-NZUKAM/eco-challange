@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "node build-assets.js",
+    "watch": "node build-assets.js --watch"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0"
+  }
+}

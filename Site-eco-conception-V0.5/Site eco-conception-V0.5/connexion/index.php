@@ -4,14 +4,14 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Mellifica</title>
-        <link href="style.css" rel="stylesheet" />
-        <script src="./js/functions.js" defer></script>
+        <link href="../assets/connexion.min.css" rel="stylesheet" />
+        <script src="../assets/connexion.min.js" defer></script>
     </head>
     <body>
         <header>
-            <img id="logo" src="img/logo_Mellifica.png" alt="Logo de Mellifica" />
+            <img id="logo" src="../img/logo_Mellifica.png" alt="Logo de Mellifica" />
             <div id="titre">Mellifica</div>
-            <img id="gif" src="./gif/abeille.gif">
+            <img id="gif" src="../gif/abeille.gif">
         </header>
         <main>
             <div id="soustitre">Connexion</div>
