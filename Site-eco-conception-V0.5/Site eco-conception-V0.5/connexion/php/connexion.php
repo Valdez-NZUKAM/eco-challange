@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     $status = $oConnexion->connect($login, $password);
 
     if($status == true){
-        session_start();
+        require_once("session.php");
         // renouvellement de l'id de session
         session_regenerate_id(true);
         $_SESSION['user'] = $login;

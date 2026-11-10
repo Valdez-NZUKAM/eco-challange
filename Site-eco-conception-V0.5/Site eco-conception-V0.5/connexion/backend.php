@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-    session_start();
+    require_once("./php/session.php");
     if(!isset($_SESSION['user'])){
         header('Location: ../index.php');
         exit;

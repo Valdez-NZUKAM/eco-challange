@@ -12,19 +12,14 @@ window.addEventListener("load", function() {
 
     // Define a callback function
     xhttp.onload = function() {
-        document.getElementsByTagName("section")[0].innerHTML = this.responseText
-        // Chargement du viewer
-        const containerViewer = window.document.getElementById("viewer");
-        // Chargement des images du viewer
-        loadImg("./viewer/imgViewer.xml", containerViewer);
-        // Timer de défilement des images du viewer
-        myTimerInterval = setInterval(myTimerScrollImg, timeScrolling);    
-    }
+        document.getElementsByTagName("section")[0].innerHTML = this.responseText;
+        initializeViewer();
+    };
 
     xhttp.onerror = function() {
-        let errorString = "Page introuvable"
+        let errorString = "Page introuvable";
         document.getElementsByTagName("section")[0].innerHTML = errorString;
-    }
+    };
 
     xhttp.open("GET", "./php/routage.php?page=" + encodeURIComponent(myPage));
     xhttp.send();   
@@ -38,6 +33,7 @@ function loadPage(element, event){
     event.preventDefault();
 
     const myPage = element.innerHTML;
+    clearInterval(myTimerInterval);
 
     // Mise à jour du titre de la page
     const sousTitre = document.getElementById("soustitre");
@@ -48,14 +44,31 @@ function loadPage(element, event){
 
     // Define a callback function
     xhttp.onload = function() {
-        document.getElementsByTagName("section")[0].innerHTML = this.responseText
-    }
+        document.getElementsByTagName("section")[0].innerHTML = this.responseText;
+        if (myPage === "Accueil") {
+            initializeViewer();
+        }
+    };
     xhttp.onerror = function() {
-        let errorString = "Page introuvable"
+        let errorString = "Page introuvable";
         document.getElementsByTagName("section")[0].innerHTML = errorString;
-    }
+    };
 
     xhttp.open("GET", "./php/routage.php?page=" + encodeURIComponent(myPage));
     xhttp.send();
 }
 
+function initializeViewer() {
+    const containerViewer = document.getElementById("viewer");
+    if (!containerViewer) {
+        return;
+    }
+
+    loadImg("./viewer/imgViewer.xml", containerViewer, function() {
+        if (!containerViewer.isConnected) {
+            return;
+        }
+        clearInterval(myTimerInterval);
+        myTimerInterval = setInterval(myTimerScrollImg, timeScrolling);
+    });
+}

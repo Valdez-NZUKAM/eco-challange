@@ -77,7 +77,7 @@ function myTimerScrollImg() {
 /******************************************
 FONCTION permettant le chargment des images à partir d'un fichier XML
 *******************************************/
-function loadImg(path, targetContainer){
+function loadImg(path, targetContainer, onLoaded){
 	const xhr = new XMLHttpRequest();
     // Traitement de la réponse
     xhr.onload = function () {
@@ -107,9 +107,11 @@ function loadImg(path, targetContainer){
             for (let i = 0; i < images.length; i++) {
                 // Génération de la balise <IMG>
                 const src = images[i].getElementsByTagName("src")[0].textContent;
+                const altElement = images[i].getElementsByTagName("alt")[0];
                 // Création de l'image
                 const img = document.createElement("img");
                 img.src = src;
+                img.alt = altElement ? altElement.textContent : "";
                 slider.appendChild(img);
 
                 // Génération de la bulle de sélection de l'image
@@ -127,7 +129,10 @@ function loadImg(path, targetContainer){
                 });
                 // Ajout au conteneur
                 scroll.appendChild(div);
-            }            
+            }
+            if (onLoaded) {
+                onLoaded();
+            }
         }
     };
 	// Callback error
@@ -140,5 +145,4 @@ function loadImg(path, targetContainer){
     // Envoi de la requête AJAX
     xhr.send();
 }
-
 
